@@ -1,0 +1,139 @@
+.navBar{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100vw;
+    position:sticky;
+    top: 0;
+    left: 0;
+    background-color: #1a365d;
+    height: 55px;
+    z-index: 10;
+}
+
+
+/* navContentDiv */
+#navContentDiv{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 95vw;
+    height: 55px;
+    /* border: 1px solid red; */
+}
+
+
+
+
+/* firstOne */
+#firstOne{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 600px;
+}
+/* #firstOne,#secoundOne,#firstOneFirstDiv,#firstOneSecoundDiv,#firstOneThirdDiv,#firstOneFourthDiv{
+    display: flex;
+} */
+#firstOneFirstDiv{
+    display: flex;
+    color: white;
+    justify-content: space-around;
+    align-items: center;
+    width: 130px;
+}
+#firstOneFirstDiv h4{
+    font-weight: 300;
+}
+#firstOneFirstDiv i{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.9;
+    width: 20px;
+    font-size:larger;
+}
+#firstOneSecoundDiv>a{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 150px;
+}
+#firstOneSecoundDiv>a>p{
+    opacity: 0.9;
+}
+#firstOneThirdDiv>a{
+    width: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+#firstOneThirdDiv>a>h3{
+    opacity: 0.9;
+    font-size: 10p;
+    font-weight: 400;
+}
+#firstOne>p{
+    color: white;
+    font-size:medium;
+    opacity: 0.9;
+}
+
+
+/* secoundOne */
+#secoundOne{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 450px;
+    /* border: 1px solid red; */
+}
+#secoundOneFirstDiv,#secoundOneSecoundDiv,#secoundOneThirdDiv{
+    display: flex;
+    color: white;
+    opacity: 0.9;
+}
+#secoundOneFirstDiv{
+    width: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+#secoundOneFirstDiv>p,#secoundOneSecoundDiv>p{
+    font-size:14px;
+}
+#secoundOneSecoundDiv{
+    width: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+#secoundOneThirdDiv{
+    width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+#menuDrop{
+    display: none;
+}
+
+
+
+
+@media screen and (max-width:768px){
+    #secoundOneFirstDiv,#secoundOneSecoundDiv,#secoundOneThirdDiv,#firstOneSecoundDiv,#firstOneThirdDiv,#inspiredOne{
+        display: none;
+    }
+    #secoundOne{
+        width: 20px;
+    }
+    #menuDrop{
+        display: block;
+        color: white;
+    }
+    #secoundOne{
+        width: 30px;
+        height: 40px;
+    }
+}

@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Navbar from "./Compounds/Navbar/Navbar.js";
+import Drop from "./Compounds/Navbar/Drop/Drop.js";
+import Signup from "./Compounds/Signup/Signup.js";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+const App =()=>{
+    
+    const [hide, setHide] = React.useState(false);
+
+
+
+    return (
+        <div>
+            <Drop hide={hide}/>
+            <Navbar setHide={setHide}/>
+            <Signup />
+        </div>
+    )
 }
 
-export default App;
+export default App
