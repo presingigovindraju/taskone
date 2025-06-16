@@ -2,7 +2,7 @@ import React from "react";
 import "./Signup.css";
 import logo from "../Images/logo (2).png";
 import { useState } from "react";
-import { FaBars } from "react-icons/fa"; // Import menu icon
+import { FaBars } from "react-icons/fa";
 
 const Signup = () => {
   const [selectedOptions, setSelectedOptions] = useState({
@@ -11,8 +11,8 @@ const Signup = () => {
     style: "",
     rigging: "",
   });
-    const [showMenu, setShowMenu] = useState(false);
-
+  const [showMenu, setShowMenu] = useState(false);
+  const [activeTab, setActiveTab] = useState("Product Options");
 
   const handleSelect = (type, value) => {
     setSelectedOptions((prev) => ({ ...prev, [type]: value }));
@@ -22,33 +22,6 @@ const Signup = () => {
 
   return (
     <div className="mainSignup">
-      {/* <div id="firstSection">
-        <img id="firstSectionImgSIzing" src={logo} alt="img_logo" />
-        <div id="firstSectionAnchorTags">
-          <a className="anchorTagAttribute" href="#products">
-            PRODUCTS
-          </a>
-          <a className="anchorTagAttribute" href="#products">
-            SUPPORT & SERVICES
-          </a>
-          <a className="anchorTagAttribute" href="#products">
-            WHO WE SERVE
-          </a>
-          <a className="anchorTagAttribute" href="#products">
-            WHO WE ARE
-          </a>
-        </div>
-        <div id="firstSectionSearchTag">
-          <p>Search...</p>
-          <div id="firstSectionInSearMixTag">
-            <div id="firstSectionInProTag">
-              <p>in:Products</p>
-              <i className=" fa-solid fa-angle-down"></i>
-            </div>
-            <i class="searchSymbole fa-solid fa-magnifying-glass"></i>
-          </div>
-        </div>
-      </div> */}
       <div id="firstSection">
         <img id="firstSectionImgSIzing" src={logo} alt="img_logo" />
         <div id="firstSectionAnchorTags">
@@ -77,58 +50,30 @@ const Signup = () => {
         </div>
       </div>
 
-      {/* <div id="secoundSection">
-        <div className="secoundBlock cleam">
-          <h3 id="homeColor">home / </h3>
-          <p className="signColorOne">Sign in</p>
-        </div>
-        <div>
-          <div>
-            <div></div>
-            <div></div>
-          </div>
-          <div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
-          <div>
-            <div></div>
-            <div></div>
-          </div>
-        </div>
-      </div> */}
-
       <div id="secoundSection">
-        {/* <div className="breadcrumbPath">
-          <p>
+        <div className="breadcrumbPath">
+          <p className="breadcrumbText">
             Home / Products / Mobility / Wheelchairs / Standard Wheelchairs /{" "}
             <span>Silver Sport 1 Wheelchair</span>
           </p>
-        </div> */}
-         <div className="breadcrumbPath">
-      <p className="breadcrumbText">
-        Home / Products / Mobility / Wheelchairs / Standard Wheelchairs /{" "}
-        <span>Silver Sport 1 Wheelchair</span>
-      </p>
 
-      {/* Hamburger icon for mobile */}
-      <div className="menuIcon" onClick={() => setShowMenu(!showMenu)}>
-        <FaBars />
-      </div>
+          <div className="menuIcon" onClick={() => setShowMenu(!showMenu)}>
+            <FaBars />
+          </div>
 
-      {/* Optional dropdown menu */}
-      {showMenu && (
-        <div className="mobileBreadcrumbDropdown">
-          <p>Home</p>
-          <p>Products</p>
-          <p>Mobility</p>
-          <p>Wheelchairs</p>
-          <p>Standard Wheelchairs</p>
-          <p><strong>Silver Sport 1 Wheelchair</strong></p>
+          {showMenu && (
+            <div className="mobileBreadcrumbDropdown">
+              <p>Home</p>
+              <p>Products</p>
+              <p>Mobility</p>
+              <p>Wheelchairs</p>
+              <p>Standard Wheelchairs</p>
+              <p>
+                <strong>Silver Sport 1 Wheelchair</strong>
+              </p>
+            </div>
+          )}
         </div>
-      )}
-    </div>
 
         <div className="productLayoutTotalBlock">
           <div className="productLayout">
@@ -153,94 +98,24 @@ const Signup = () => {
                 />
                 <div className="videoThumb">
                   <img
-                  src="https://media.istockphoto.com/id/183880070/photo/black-wheelchair-on-white-background.jpg?s=612x612&w=0&k=20&c=es7shP4g4_PjazHpJJ88irxREO9YlOk60Kv0bJAl_do="
-                  alt="thumb4"
-                />
+                    src="https://media.istockphoto.com/id/183880070/photo/black-wheelchair-on-white-background.jpg?s=612x612&w=0&k=20&c=es7shP4g4_PjazHpJJ88irxREO9YlOk60Kv0bJAl_do="
+                    alt="thumb4"
+                  />
                   <i class="fa-regular fa-circle-play"></i>
                 </div>
                 <i class="arrowSizing fa-solid fa-angle-down"></i>
               </div>
-
-              
             </div>
 
             <div className="mainProductImg">
-                <img
-                  src="https://media.istockphoto.com/id/183880070/photo/black-wheelchair-on-white-background.jpg?s=612x612&w=0&k=20&c=es7shP4g4_PjazHpJJ88irxREO9YlOk60Kv0bJAl_do="
-                  alt="main"
-                />
-                <p className="zoomText">Roll over image to zoom in</p>
-              </div>
+              <img
+                src="https://media.istockphoto.com/id/183880070/photo/black-wheelchair-on-white-background.jpg?s=612x612&w=0&k=20&c=es7shP4g4_PjazHpJJ88irxREO9YlOk60Kv0bJAl_do="
+                alt="main"
+              />
+              <p className="zoomText">Roll over image to zoom in</p>
+            </div>
 
-            {/* <div className="productDetails">
-              <h2>
-                Silver Sport 2 Wheelchair with Full Arms and Swing-Away
-                Removable Footrests
-              </h2>
-              <p className="productCode">
-                Item # SSP218DDA-ELR | UPC # 822383140414 | HCPCS # E4002
-              </p>
-              <p className="productPrice">$262.23</p>
-
-              <div className="selectors">
-                <div className="optionGroup">
-                  <label>Color</label>
-                  <div className="colorDots">
-                    <span className="dot red"></span>
-                    <span className="dot blue"></span>
-                    <span className="dot black"></span>
-                  </div>
-                </div>
-
-                <div className="optionGroup">
-                  <label>Seat Size</label>
-                  <div className="buttonGroup">
-                    <button>16"</button>
-                    <button className="active">18"</button>
-                    <button>20"</button>
-                  </div>
-                </div>
-
-                <div className="optionGroup">
-                  <label>Arm Style</label>
-                  <div className="buttonGroup">
-                    <button className="active">Desk</button>
-                    <button>Full</button>
-                  </div>
-                </div>
-
-                <div className="optionGroup">
-                  <label>Front Rigging</label>
-                  <div className="buttonGroup">
-                    <button className="active">Footrests</button>
-                    <button>Legrests</button>
-                  </div>
-                </div>
-              </div>
-
-              <div className="productBuyBox">
-                <p className="inStock">In Stock</p>
-                <p className="deliveryInfo">
-                  Est Delivery Date: <span>11/10/24</span>
-                </p>
-
-                <div className="buyOptions">
-                  <select>
-                    <option>1</option>
-                    <option>2</option>
-                  </select>
-                  <select>
-                    <option>4/cs</option>
-                    <option>2/cs</option>
-                  </select>
-                </div>
-
-                <div className="actionButtons">
-                  <button className="addToCart">Add to Cart</button>
-                  <button className="buyNow">Buy Now</button>
-                </div>
-              </div>
-            </div>  */}
+            
           </div>
 
           <div className="productDetailsPurchaseBoxTotally">
@@ -250,7 +125,7 @@ const Signup = () => {
                   Silver Sport 2 Wheelchair with Full Arms and Swing-Away
                   Removable Footrests
                 </h2>
-                
+
                 <div className="productCode">
                   <div>
                     <p>Item # SSP218DDA-ELR</p>
@@ -267,7 +142,6 @@ const Signup = () => {
                 <p className="productPrice">$262.23</p>
               </div>
 
-              
               <div className="productDetailsTwoSection">
                 <div className="optionGroup">
                   <label>Color</label>
@@ -276,7 +150,9 @@ const Signup = () => {
                       <span
                         key={color}
                         className={`dot ${color} ${
-                          selectedOptions.color === color ? "selected active" : ""
+                          selectedOptions.color === color
+                            ? "selected active"
+                            : ""
                         }`}
                         onClick={() => handleSelect("color", color)}
                       ></span>
@@ -424,33 +300,38 @@ const Signup = () => {
             </div> */}
           </div>
 
-
           <div className="purchaseBoxTotallyFull">
             <div id="purchaseBoxTotally">
               <div className="purchaseBox">
                 <p className="purchasePrice">$262.23</p>
                 <p className="inStockText">In Stock</p>
                 <p className="deliveryText">
-                  <p>Last Order Date: <strong>11/10/24</strong></p>
-                  <p className="deliveryTextDeliveryTo">Deliver to <span>Chris - Huntington</span></p>
+                  <p>
+                    Last Order Date: <strong>11/10/24</strong>
+                  </p>
+                  <p className="deliveryTextDeliveryTo">
+                    Deliver to <span>Chris - Huntington</span>
+                  </p>
                   <p>11743</p>
-                  <p>Est Delivery Date: <strong>11/10/24</strong></p>
+                  <p>
+                    Est Delivery Date: <strong>11/10/24</strong>
+                  </p>
                 </p>
 
                 <div className="quantitySelects">
                   <div className="optionSelect  optionSelectFirstones">
-                  <label>Quantity</label>
-                  <select>
-                    <option>1</option>
-                    <option>2</option>
-                  </select>
+                    <label>Quantity</label>
+                    <select>
+                      <option>1</option>
+                      <option>2</option>
+                    </select>
                   </div>
                   <div className="optionSelect">
-                  <label>UOM</label>
-                  <select>
-                    <option>4/cs</option>
-                    <option>2/cs</option>
-                  </select>
+                    <label>UOM</label>
+                    <select>
+                      <option>4/cs</option>
+                      <option>2/cs</option>
+                    </select>
                   </div>
                 </div>
 
@@ -470,109 +351,198 @@ const Signup = () => {
               </div>
             </div>
           </div>
-
         </div>
       </div>
 
-      {/* <div className="thirdSection">
+     
 
-      </div> */}
-
-      {/* <div className="thirdSection">
-        <div className="tabHeader">
-          <button className="active">Product Options</button>
-          <button>Features</button>
-          <button>Specifications</button>
-          <button>Resources/Downloads</button>
-        </div>
-
-        <table className="productOptionsTable">
-          <thead>
-            <tr>
-              <th>Item #</th>
-              <th>UPC</th>
-              <th>Seat Size</th>
-              <th>Front Rigging</th>
-              <th>HCPCS</th>
-              <th>Price</th>
-              <th>Quantity</th>
-              <th>Unit</th>
-              <th>Select</th>
-            </tr>
-          </thead>
-          <tbody>
-            {[...Array(8)].map((item, i) => (
-              <tr key={i}>
-                <td>PLA416FBUARAD-ELR</td>
-                <td>822383005263</td>
-                <td>16"</td>
-                <td>Elevating Leg Rest</td>
-                <td>$299.99</td>
-                <td>$299.99</td>
-                <td>
-                  <input type="number" defaultValue={1} />
-                </td>
-                <td>
-                  <select>
-                    <option>1/EACH</option>
-                  </select>
-                </td>
-                <td>
-                  <button className="addToCartBtn">Add to Cart</button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div> */}
+      
       <div className="thirdSection">
-        <div className="tabHeader">
-          <button className="active">Product Options</button>
-          <button>Features</button>
-          <button>Specifications</button>
-          <button>Resources/Downloads</button>
-        </div>
        
+        <div className="tabHeader">
+          {[
+            "Product Options",
+            "Features",
+            "Specifications",
+            "Resources/Downloads",
+          ].map((tab) => (
+            <button
+              key={tab}
+              className={activeTab === tab ? "active" : ""}
+              onClick={() => setActiveTab(tab)}
+            >
+              {tab}
+            </button>
+          ))}
+        </div>
 
-       <div className="tableWrapper">
-        <table className="productOptionsTable">
-          <thead>
-            <tr>
-              <th>Item #</th>
-              <th>UPC</th>
-              <th>Seat Size</th>
-              <th>Front Rigging</th>
-              <th>HCPCS</th>
-              <th>Price</th>
-              <th>Quantity</th>
-              <th>Unit</th>
-              <th>Select</th>
-            </tr>
-          </thead>
-          <tbody>
-            {[...Array(8)].map((_, i) => (
-              <tr key={i}>
-                <td data-label="Item #">PLA416FBUARAD-ELR</td>
-                <td data-label="UPC">822383005263</td>
-                <td data-label="Seat Size">16"</td>
-                <td data-label="Front Rigging">Elevating Leg Rest</td>
-                <td data-label="HCPCS">$299.99</td>
-                <td data-label="Price">$299.99</td>
-                <td data-label="Quantity">
-                  <input type="number" defaultValue={1} />
-                </td>
-                <td data-label="Unit">
-                  <select>
-                    <option>1/EACH</option>
-                  </select>
-                </td>
-                <td data-label="Select">
-                  <button className="addToCartBtn">Add to Cart</button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        
+        <div className="tableWrapper">
+          {activeTab === "Product Options" && (
+            <table className="productOptionsTable">
+              <thead>
+                <tr>
+                  <th>Item #</th>
+                  <th>UPC</th>
+                  <th>Seat Size</th>
+                  <th>Front Rigging</th>
+                  <th>HCPCS</th>
+                  <th>Price</th>
+                  <th>Quantity</th>
+                  <th>Unit</th>
+                  <th>Select</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[...Array(8)].map((_, i) => (
+                  <tr key={i}>
+                    <td data-label="Item #">PLA416FBUARAD-ELR</td>
+                    <td data-label="UPC">822383005263</td>
+                    <td data-label="Seat Size">16"</td>
+                    <td data-label="Front Rigging">Elevating Leg Rest</td>
+                    <td data-label="HCPCS">$299.99</td>
+                    <td data-label="Price">$299.99</td>
+                    <td data-label="Quantity">
+                      <input type="number" defaultValue={1} />
+                    </td>
+                    <td data-label="Unit">
+                      <select>
+                        <option>1/EACH</option>
+                      </select>
+                    </td>
+                    <td data-label="Select">
+                      <button className="addToCartBtn">Add to Cart</button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          )}
+
+          {activeTab === "Features" && <p>Features</p>}
+         
+          {activeTab === "Specifications" && (
+            <div className="specificationsTableContainer">
+              <div className="specTables">
+                <table className="specTable">
+                  <tbody>
+                    <tr>
+                      <th>Primary Product Color</th>
+                      <td>Black</td>
+                    </tr>
+                    <tr>
+                      <th>Primary Product Material</th>
+                      <td>Steel</td>
+                    </tr>
+                    <tr>
+                      <th>Overall Product Height</th>
+                      <td>36"</td>
+                    </tr>
+                    <tr>
+                      <th>Overall Product Length</th>
+                      <td>42"</td>
+                    </tr>
+                    <tr>
+                      <th>Overall Product Width</th>
+                      <td>26"</td>
+                    </tr>
+                    <tr>
+                      <th>Folded Dimensions</th>
+                      <td>42" x 12.5" x 36"</td>
+                    </tr>
+                    <tr>
+                      <th>Base Shipping Height</th>
+                      <td>36.6</td>
+                    </tr>
+                    <tr>
+                      <th>Base Shipping Length</th>
+                      <td>32.48</td>
+                    </tr>
+                    <tr>
+                      <th>Base Shipping Width</th>
+                      <td>11.42</td>
+                    </tr>
+                    <tr>
+                      <th>Base Shipping Weight</th>
+                      <td>47.69</td>
+                    </tr>
+                    <tr>
+                      <th>Actual Product Weight</th>
+                      <td>44 lbs</td>
+                    </tr>
+                    <tr>
+                      <th>Product Weight Capacity</th>
+                      <td>300 lb</td>
+                    </tr>
+                    <tr>
+                      <th>Seat Width</th>
+                      <td>18"</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <table className="specTable">
+                  <tbody>
+                    <tr>
+                      <th>Seat Depth</th>
+                      <td>16"</td>
+                    </tr>
+                    <tr>
+                      <th>Seat to Floor Height</th>
+                      <td>17.5"-19.5"</td>
+                    </tr>
+                    <tr>
+                      <th>Seat to Armrest Height</th>
+                      <td>8"</td>
+                    </tr>
+                    <tr>
+                      <th>Armrest Length</th>
+                      <td>14"</td>
+                    </tr>
+                    <tr>
+                      <th>Armrest to Floor Height</th>
+                      <td>27.5"</td>
+                    </tr>
+                    <tr>
+                      <th>Closed Width</th>
+                      <td>12.5"</td>
+                    </tr>
+                    <tr>
+                      <th>Number of Wheels</th>
+                      <td>4</td>
+                    </tr>
+                    <tr>
+                      <th>Rear Wheels</th>
+                      <td>24" x 1"</td>
+                    </tr>
+                    <tr>
+                      <th>Casters</th>
+                      <td>8"</td>
+                    </tr>
+                    <tr>
+                      <th>Brakes</th>
+                      <td>Push-To-Lock Wheel Brakes</td>
+                    </tr>
+                    <tr>
+                      <th>Back of Chair Height</th>
+                      <td>16"</td>
+                    </tr>
+                    <tr>
+                      <th>Overall Length /w Riggings</th>
+                      <td>42"</td>
+                    </tr>
+                    <tr>
+                      <th>Warranty</th>
+                      <td>3 Year Limited</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          )}
+          {activeTab === "Resources/Downloads" && (
+            <p>Resources and downloads</p>
+          )}
         </div>
       </div>
 
@@ -634,10 +604,9 @@ const Signup = () => {
           <div className="products" id="fourthBlockSecoundOne">
             <div className="fourthBlockSecoundOneFirstOne">
               <div className=" fourthBlockSecoundOneFirstOneThree">
-                {/* <caption>Products</caption> */}
+                
                 <ul>
-                  {/* <li className="heading">Products</li> */}
-                  {/* <caption>Products</caption> */}
+                 
                   <p className="list-heading">Products</p>
                   <li>
                     <a
