@@ -224,26 +224,7 @@ const Signup = () => {
               </div>
 
               <div className="productDetailsThreeSection">
-                {/* <p className="inStock">In Stock</p>
-                <p className="deliveryInfo">
-                  Est Delivery Date: <span>11/10/24</span>
-                </p>
-
-                <div className="buyOptions">
-                  <select>
-                    <option>1</option>
-                    <option>2</option>
-                  </select>
-                  <select>
-                    <option>4/cs</option>
-                    <option>2/cs</option>
-                  </select>
-                </div>
-
-                <div className="actionButtons">
-                  <button className="addToCart">Add to Cart</button>
-                  <button className="buyNow">Buy Now</button>
-                </div> */}
+                
                 <h3>About This Item</h3>
                 <p>
                   If you are seeking an easy, transportable mobility option,
@@ -262,42 +243,7 @@ const Signup = () => {
                 </div>
               </div>
             </div>
-            {/* <div id="purchaseBoxTotally">
-              <div className="purchaseBox">
-                <p className="purchasePrice">$262.23</p>
-                <p className="inStockText">In Stock</p>
-                <p className="deliveryText">
-                  Last Order Date: <strong>11/10/24</strong>
-                  <br />
-                  Est Delivery Date: <strong>11/10/24</strong>
-                </p>
-
-                <div className="quantitySelects">
-                  <select>
-                    <option>1</option>
-                    <option>2</option>
-                  </select>
-                  <select>
-                    <option>4/cs</option>
-                    <option>2/cs</option>
-                  </select>
-                </div>
-
-                <button className="addToCartBtn">Add to Cart</button>
-                <button className="buyNowBtn">Buy Now</button>
-              </div>
-
-              <div className="replacementPartBox">
-                <p className="replacementTitle">
-                  <i className="fa-solid fa-gear"></i> Looking for Replacement
-                  Parts?
-                </p>
-                <p>
-                  To find replacement parts or accessories for this product,
-                  visit the <a href="#">Parts Finder</a> page.
-                </p>
-              </div>
-            </div> */}
+            
           </div>
 
           <div className="purchaseBoxTotallyFull">
