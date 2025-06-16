@@ -682,8 +682,8 @@ body {
 
 .tabHeader button.active {
   background: rgb(244, 239, 239);
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 
@@ -715,7 +715,40 @@ body {
   border: 1px solid #ccc;
   border-radius: 4px;
 }
+.thumbnailImage {
+  border: 2px solid transparent;
+}
+.thumbnailImage,
+.videoThumb img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.videoThumb {
+  position: relative;
+  width: 60px;
+  height: 60px;
+}
+.videoThumb i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 20px;
+  pointer-events: none;
+}
 
+.thumbnailImage:hover {
+  border-color: #00bfff;
+}
+.mainProductImg img {
+  width: 500px;
+  height: 500px;
+  object-fit: contain; /* or cover depending on your design */
+}
 .productOptionsTable select {
   padding: 0.3rem;
   border-radius: 4px;
@@ -744,6 +777,11 @@ body {
     gap: 1rem;
     font-size: 0.95rem;
   }
+  .tabHeader button.active {
+  /* background: rgb(244, 239, 239); */
+  /* border-radius:10px; */
+  /* border-top-right-radius: 10px; */
+}
 
   .productOptionsTable th,
   .productOptionsTable td {
@@ -758,7 +796,11 @@ body {
     width: 100%;
     border: none;
   }
-
+  .tabHeader button.active {
+  /* background: rgb(244, 239, 239); */
+  border-radius:10px !important;
+  /* border-top-right-radius: 10px; */
+    }
   .productOptionsTable thead {
     display: none;
   }
