@@ -305,7 +305,18 @@ body {
   margin-bottom: 15px;
 }
 
+.thumbnailImage {
+  width: 70px;
+  height: 60px;
+  object-fit: contain;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: border-color 0.2s ease-in-out;
+}
 
+.thumbnailImage.activeThumbnail {
+  border-color: skyblue;
+}
 .productDetailsThreeSection{
   padding-top: 10px;
   /* padding-bottom: 10px; */
@@ -648,6 +659,7 @@ body {
   /* border: 2px solid red; */
 }
 
+/* TAB HEADER BUTTONS */
 .tabHeader {
   display: flex;
   justify-content: center;
@@ -682,8 +694,8 @@ body {
 
 .tabHeader button.active {
   background: rgb(244, 239, 239);
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 
@@ -865,7 +877,11 @@ body {
   .specificationsTableContainer {
     padding: 15px 10px;
   }
-
+  .tabHeader button.active {
+  /* background: rgb(244, 239, 239); */
+  border-radius: 10px;
+  /* border-top-right-radius: 10px; */
+  }
   .specTable th,
   .specTable td {
     font-size: 14px;
