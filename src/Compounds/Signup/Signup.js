@@ -470,7 +470,7 @@ const Signup = () => {
                       </select>
                     </td>
                     <td data-label="Select">
-                      <button className="addToCartBtn">Add to Cart</button>
+                      <button className="addToCartBtns">Add to Cart</button>
                     </td>
                   </tr>
                 ))}
