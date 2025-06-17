@@ -618,22 +618,24 @@ const Signup = () => {
           )}
 
           {activeTab === "Resources/Downloads" && (
-            <div className="accessoriesGrid">
-              {[...Array(5)].map((_, i) => (
-                <div key={i} className="accessoryCard">
-                  <img
-                    src="https://media.istockphoto.com/id/183880070/photo/black-wheelchair-on-white-background.jpg?s=612x612&w=0&k=20&c=es7shP4g4_PjazHpJJ88irxREO9YlOk60Kv0bJAl_do="
-                    alt="Heel Strap"
-                  />
-                  <div className="accessoryDetails">
-                    <h3>Heel Strap</h3>
-                    <p>Item # STDS831</p>
-                    <h4>$262.23</h4>
-                    <button className="addToCartBtn">Add to Cart</button>
-                  </div>
-                </div>
-              ))}
+            <div className="SpecificationsDownLoadOne">
+              <div>
+                <i class="fa-solid fa-book-open"></i>
+                <p>User Manual</p>
+                <button type="button">Download</button>
+              </div>
+              <div>
+                <i class="fa-solid fa-gear"></i>
+                <p>Parts Diagram</p>
+                <button type="button">Download</button>
+              </div>
+              <div>
+                <i class="fa-regular fa-file-lines"></i>
+                <p>Catalog Page</p>
+                <button type="button">Download</button>
+              </div>
             </div>
+
           )}
         </div>
       </div>

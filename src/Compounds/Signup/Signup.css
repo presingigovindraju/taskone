@@ -795,6 +795,71 @@ thead{
     font-size: 0.9rem;
   }
 }
+.SpecificationsDownLoadOne {
+  display: flex;
+  justify-content: center;
+  gap: 90px;
+  padding: 40px 20px;
+  background-color: #f8f9fa;
+  flex-wrap: wrap;
+}
+
+.SpecificationsDownLoadOne div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  max-width: 180px;
+}
+
+.SpecificationsDownLoadOne i {
+  font-size: 40px;
+  color: #0b3c5d;
+}
+
+.SpecificationsDownLoadOne p {
+  font-weight: 600;
+  color: #1a202c;
+  margin: 0;
+  font-size: 16px;
+  text-align: center;
+}
+
+.SpecificationsDownLoadOne button {
+  background-color: #28a9f1;
+  color: #fff;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.SpecificationsDownLoadOne button:hover {
+  background-color: #1899e1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .SpecificationsDownLoadOne {
+    gap: 30px;
+    padding: 30px 10px;
+  }
+
+  .SpecificationsDownLoadOne i {
+    font-size: 34px;
+  }
+
+  .SpecificationsDownLoadOne p {
+    font-size: 15px;
+  }
+
+  .SpecificationsDownLoadOne button {
+    padding: 8px 18px;
+    font-size: 14px;
+  }
+}
 
 
 @media (max-width: 768px) {
