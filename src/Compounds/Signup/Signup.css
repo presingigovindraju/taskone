@@ -60,23 +60,37 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border: 1px solid #ababac;
+    border: 1px solid #d3d3d5;
     border-radius: 20px;
     width: 300px;
     height: 40px;
     margin-left: 20px;
-    padding-left: 40px;
+    padding-left: 5px;
     /* padding-right: 40px; */
     overflow: hidden;
+}
+
+#firstSectionSearchTag>input{
+  border: none;
+  outline: none;
+}
+#firstSectionSearchTag>input::placeholder{
+  color: gray;
+  opacity: 0.4;
 }
 #firstSectionSearchTag>p{
       margin-left: -20px;
 }
+.ProductsColorChange{
+  /* color: gray; */
+  opacity: 0.7;
+}
 #firstSectionInProTag{
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: start;
     justify-content: space-around;
-    border-left: 1px solid #ababac;
+    /* border-left: 1px solid #ababac; */
     /* border-right: 1px solid black; */
     /* border: 1px solid #ababac; */
     height: 40px;
@@ -151,11 +165,13 @@ body {
 
 .productLayoutTotalBlock {
   display: flex;
-  width: 96%;
+  width: 95%;
   gap: 30px;
   padding: 35px 0;
   flex-wrap: wrap;
   justify-content: space-between;
+  /* border: 2px solid red; */
+  padding-left: 45px;
 }
 
 
@@ -243,7 +259,8 @@ body {
 
 .purchaseBoxTotallyFull {
   flex: 0.4;
-  min-width: 300px;
+  min-width: 240px;
+  /* border: 2px solid red; */
 }
 
 .productDetails {
@@ -254,7 +271,7 @@ body {
 #purchaseBoxTotally {
   display: flex;
   flex-direction: column;
-  /* border:2px solid red; */
+  /* border:2px solid green; */
 }
 
 
@@ -312,10 +329,11 @@ body {
   border: 2px solid transparent;
   cursor: pointer;
   transition: border-color 0.2s ease-in-out;
+  border-radius: 5px;
 }
 
 .thumbnailImage.activeThumbnail {
-  border-color: skyblue;
+  border:2px solid skyblue;
 }
 .productDetailsThreeSection{
   padding-top: 10px;
@@ -357,8 +375,8 @@ body {
 }
 
 .dot {
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   border: 1px solid #888;
 }
@@ -387,10 +405,10 @@ body {
 }
 
 .purchaseBox {
-  border: 1px solid #ddd;
+  /* border: 1px solid #ddd; */
   border-radius: 10px;
   padding: 16px;
-  background-color: rgb(239, 237, 237);
+  background-color: #f9f9f9;
   /* border:2px solid red; */
   display:flex;
   flex-direction:column;
@@ -479,7 +497,7 @@ body {
   font-weight: bold;
   margin-bottom: 5px;
   font-weight: 600;
-  font-size: 22px;
+  font-size: 19px;
   color: #554f4f;
   /* background-color: white; */
 }
@@ -528,6 +546,7 @@ body {
     flex-direction: column;
     gap: 40px;
     align-items: center;
+    padding-left: 8px;
   }
 
   .productLayout {
@@ -671,10 +690,13 @@ body {
 .tableWrapper {
   overflow-x: auto;
   width: 100%;
-  background: rgb(244, 239, 239);
+  background: #f8f9fb;
   /* border: 2px solid red; */
   padding: 1rem;
-  border: 1px solid #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* border: 1px solid #e0e0e0; */
   /* border-radius: 8px; */
   /* border: 2px solid red; */
   /* background-color: white; */
@@ -693,7 +715,7 @@ body {
 }
 
 .tabHeader button.active {
-  background: rgb(244, 239, 239);
+  background: #f8f9fb;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
@@ -701,7 +723,7 @@ body {
 
 /* TABLE BASE STYLES */
 .productOptionsTable {
-  width: 100%;
+  width: 95%;
   border-collapse: collapse;
   background-color: rgb(244, 239, 239);
   overflow-x: auto;
@@ -709,7 +731,7 @@ body {
 }
 
 .productOptionsTable thead {
-  background-color: #0f2e4d;
+  background-color: #1a365d;
   color: white;
 }
 
@@ -750,6 +772,14 @@ body {
 
 .addToCartBtn:hover {
   background-color: #238dc2;
+}
+tbody{
+  background-color: #ffffff;
+  border: 1px solid #dbdcdd;
+}
+thead{
+  /* background-color: #ffffff; */
+  border: 1px solid #dbdcdd;
 }
 
 
@@ -794,6 +824,7 @@ body {
     padding: 0.5rem 0;
     border-bottom: none;
     font-size: 0.9rem;
+    /* background-color: red; */
   }
 
   .productOptionsTable td::before {
@@ -817,7 +848,7 @@ body {
 .specificationsTableContainer {
   margin-top: 30px;
   padding: 20px;
-  background-color: rgb(242, 235, 235);
+  background-color: green;
   border-radius: 10px;
   overflow-x: auto;
 }
@@ -826,7 +857,9 @@ body {
   display: flex;
   gap: 20px;
   justify-content: space-evenly;
-  flex-wrap: wrap; 
+  /* flex-wrap: wrap;  */
+  /* border: 2px solid red; */
+  width: 90%;
 }
 
 .specTable {
@@ -835,9 +868,10 @@ body {
   border-collapse: collapse;
   background-color: #fff;
   border: 1px solid #ccc;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   overflow: hidden;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  /* border: 2px solid red; */
 }
 
 /* Table header column */
@@ -905,22 +939,33 @@ body {
 
 
 .fifthSection {
-  padding: 2rem 1rem;
+  padding: 1rem 1rem;
   text-align: center;
   font-family: Arial, sans-serif;
   width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  /* align-items: ; */
+
 }
 
 .accessoriesTitle {
-  font-size: 1.8rem;
-  font-weight: 700;
+  font-size: 1.6rem;
+  font-weight: 600;
   margin-bottom: 1.5rem;
+  /* border: 2px solid red; */
+  display: flex;
+  align-items: end;
+  width: 84%;
+  opacity: 0.85;
 }
 
 .accessoriesGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.2rem;
+  gap: 1.4rem;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -994,11 +1039,17 @@ body {
 
 .seeAllWrapper {
   margin-top: 1.5rem;
+  display: flex;
+  /* border: 2px solid red; */
+  align-items: center;
+  justify-content: space-between;
+  min-width: 85px;
+  
 }
 
 .seeAllBtn {
   font-weight: bold;
-  color: #0d0d0d;
+  color: #263447;
   font-size: 1rem;
   cursor: pointer;
 }
@@ -1020,7 +1071,6 @@ body {
 
 
 
-/* ---------- Base Styles ---------- */
 
 .fourthBlock {
   background-color: #1a365d;
@@ -1057,6 +1107,7 @@ body {
   align-items: start;
   justify-content: center;
   padding-left: 10px;
+  /* border: 2px solid red; */
 }
 
 #fourthBlockfirstOneAppSymbole > i {
@@ -1128,7 +1179,7 @@ body {
   opacity: 1;
 }
 
-/* ---------- Responsive Styles ---------- */
+
 
 @media screen and (max-width: 768px) {
   #fourthBlockTotally {
