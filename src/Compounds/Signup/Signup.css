@@ -815,6 +815,11 @@ thead{
     font-size: 0.9rem;
   }
 }
+@media (max-width: 768px) {
+  .productOptionsTable {
+    background-color: #f4f3f3 !important;
+  }
+}
 .featuresSection {
   display: flex;
   justify-content: space-between;
