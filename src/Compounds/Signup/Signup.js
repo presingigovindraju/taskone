@@ -6,10 +6,10 @@ import { FaBars } from "react-icons/fa";
 
 const Signup = () => {
   const [selectedOptions, setSelectedOptions] = useState({
-    color: "",
-    size: "",
-    style: "",
-    rigging: "",
+    color: "red",
+    size: '18"',
+    style: "Desk",
+    rigging: "Legrests",
   });
 
   const [showMenu, setShowMenu] = useState(false);
@@ -37,9 +37,9 @@ const Signup = () => {
     const idx = thumbnailOrder.findIndex((img) => img === mainImage);
     let newIdx;
     if (idx > 0) {
-      newIdx = idx - 1; 
+      newIdx = idx - 1;
     } else {
-      newIdx = thumbnailOrder.length - 1; 
+      newIdx = thumbnailOrder.length - 1;
     }
 
     setMainImage(thumbnailOrder[newIdx]);
@@ -49,9 +49,9 @@ const Signup = () => {
     const idx = thumbnailOrder.findIndex((img) => img === mainImage);
     let newIdx;
     if (idx < thumbnailOrder.length - 1) {
-      newIdx = idx + 1; 
+      newIdx = idx + 1;
     } else {
-      newIdx = 0; 
+      newIdx = 0;
     }
 
     setMainImage(thumbnailOrder[newIdx]);
@@ -368,25 +368,11 @@ const Signup = () => {
             <div id="purchaseBoxTotally">
               <div className="purchaseBox">
                 <p className="purchasePrice">$262.23</p>
-                <p className="inStockText">In Stock</p>
-                <p className="deliveryText">
-                  <p>
-                    Last Order Date: <strong>11/10/24</strong>
-                  </p>
-                  <p className="deliveryTextDeliveryTo">
-                    Deliver to <span>Chris - Huntington</span>
-                  </p>
-                  <p>11743</p>
-                  <p>
-                    Est Delivery Date: <strong>11/10/24</strong>
-                  </p>
-                </p>
-
                 <div className="quantitySelects">
                   <div className="optionSelect  optionSelectFirstones">
                     <label>Quantity</label>
                     <select>
-                      <option>1</option>
+                      <option className="optionsCenter">1</option>
                       <option>2</option>
                     </select>
                   </div>
@@ -398,6 +384,24 @@ const Signup = () => {
                     </select>
                   </div>
                 </div>
+                
+                <p className="deliveryText">
+                  
+                  <p className="deliveryTextDeliveryTo">
+                    Deliver to <span>Chris - Huntington</span>
+                  </p>
+                  
+                  <p className="numberSpacing">11743</p>
+                  <p>
+                    Last Order Date: <strong>11/10/24</strong>
+                  </p>
+                  <p className="inStockText">In Stock</p>
+                  {/* <p>
+                    Est Delivery Date: <strong>11/10/24</strong>
+                  </p> */}
+                </p>
+
+                
 
                 <button className="addToCartBtn ">Add to Cart</button>
                 <button className="buyNowBtn">Buy Now</button>
@@ -479,21 +483,20 @@ const Signup = () => {
           )}
 
           {activeTab === "Features" && (
-            <div className="accessoriesGrid">
-              {[...Array(5)].map((_, i) => (
-                <div key={i} className="accessoryCard">
-                  <img
-                    src="https://media.istockphoto.com/id/183880070/photo/black-wheelchair-on-white-background.jpg?s=612x612&w=0&k=20&c=es7shP4g4_PjazHpJJ88irxREO9YlOk60Kv0bJAl_do="
-                    alt="Heel Strap"
-                  />
-                  <div className="accessoryDetails">
-                    <h3>Heel Strap</h3>
-                    <p>Item # STDS831</p>
-                    <h4>$262.23</h4>
-                    <button className="addToCartBtn">Add to Cart</button>
-                  </div>
-                </div>
-              ))}
+            <div className="featuresSection">
+              <ul className="featureList">
+                <li>Compact and lightweight design for easy transport</li>
+                <li>LED display with battery and flow rate indicators</li>
+                <li>Quiet operation suitable for home and clinical use</li>
+                <li>Medical-grade materials ensure patient safety</li>
+              </ul>
+              <ul className="featureList">
+                <li>Adjustable oxygen flow up to 5 L/min</li>
+                <li>Comes with reusable air filters for cost efficiency</li>
+                <li>Low oxygen alarm for patient safety</li>
+                <li>Continuous and pulse dose modes available</li>
+                <li>Backed by a 2-year manufacturer warranty</li>
+              </ul>
             </div>
           )}
 
@@ -635,7 +638,6 @@ const Signup = () => {
                 <button type="button">Download</button>
               </div>
             </div>
-
           )}
         </div>
       </div>
