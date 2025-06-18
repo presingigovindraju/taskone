@@ -990,12 +990,12 @@ thead{
   justify-content: space-evenly;
   /* flex-wrap: wrap;  */
   /* border: 2px solid red; */
-  width: 90%;
+  width: 95%;
 }
 
 .specTable {
   width: 100%;
-  max-width: 650px;
+  max-width: 600px;
   border-collapse: collapse;
   background-color: #fff;
   border: 1px solid #ccc;
@@ -1014,6 +1014,8 @@ thead{
   padding: 10px 14px;
   width: 60%;
   font-size: 15px;
+  /* border: 2px solid red; */
+  padding-left: 30px;
 }
 
 /* Table data column */
@@ -1023,6 +1025,11 @@ thead{
   background-color: #fdfdfd;
   border-top: 1px solid #eee;
   font-size: 15px;
+  /* border: 2px solid red; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* border-bottom: #0d0d0d; */
 }
 .specTable tr {
   border-bottom: 1px solid white;
