@@ -503,6 +503,7 @@ const Signup = () => {
 
           {activeTab === "Specifications" && (
             // <div className="specificationsTableContainer">
+            // hgvv
             <div className="specTables">
               <table className="specTable">
                 <tbody>
