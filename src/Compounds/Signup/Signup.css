@@ -83,7 +83,7 @@ body {
 }
 .ProductsColorChange{
   /* color: gray; */
-  opacity: 0.7;
+  /* opacity: 0.7; */
 }
 #firstSectionInProTag{
     display: flex;
@@ -227,6 +227,11 @@ body {
   z-index: 2;
   background-color: rgba(0, 0, 0, 0.3);
   padding: 2px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 
@@ -491,8 +496,10 @@ body {
 }
 
 .addToCartBtn {
-  background-color: #3ea9f5;
-  color: #1a385c !important;
+  /* background-color: red !important;
+  color: #1a385c !important; */
+  background-color: #6ab3e6  !important;
+  color: #1e3651 !important;
   font-size: 19px;
   /* opacity: 0.8; */
   /* max-width: 180px; */
@@ -708,7 +715,7 @@ body {
 .tableWrapper {
   overflow-x: auto;
   width: 100%;
-  background: #f4f3f3;
+  background: #f7f7f7;
   /* border: 2px solid red; */
   padding: 1.8rem;
   display: flex;
@@ -733,7 +740,7 @@ body {
 }
 
 .tabHeader button.active {
-  background: #f4f3f3;
+  background: #f7f7f7;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
@@ -778,16 +785,16 @@ body {
 }
 
 .addToCartBtns {
-  background-color: #35a8e0;
-  color: #062436;
+  background-color: #6ab3e6;
+  color: #1e3651;
   border: none;
   padding: 0.4rem 0.7rem;
   border-radius: 6px;
   cursor: pointer;
   font-weight: 600;
   font-size: 12.5px;
-  transition: background 0.3s ease;
-  opacity: 0.9;
+  /* transition: background 1s ease; */
+  /* opacity: 0.9; */
 }
 
 .addToCartBtn:hover {
@@ -822,21 +829,35 @@ thead{
 }
 .featuresSection {
   display: flex;
+  gap: 40px;
   justify-content: space-between;
-  gap: 110px;
-  padding: 20px 10px;
-  background-color: #f6f5f5; 
-
+  padding: 20px;
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  flex-wrap: wrap;
 }
 
 .featureList {
+  flex: 1;
+  min-width: 280px;
   list-style-type: disc;
   padding-left: 20px;
-  flex: 1;
-  font-size: 17.5px;
-  line-height: 1.6;
-  color: #445262; /* Dark readable text */
 }
+
+.featureList li {
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #333;
+}
+
+/* Responsive behavior below 768px */
+@media (max-width: 768px) {
+  .featuresSection {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
 
 .SpecificationsDownLoadOne {
   display: flex;
@@ -1139,14 +1160,14 @@ thead{
 
 .addToCartBtn {
   width: 100%;
-  background-color: #35a8e0;
-  color: white;
+  /* background-color: #35a8e0;
+  color: white; */
   border: none;
   padding: 0.5rem 0;
   border-radius: 6px;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.3s;
+  /* transition: background 0.3s; */
 }
 
 .addToCartBtn:hover {
