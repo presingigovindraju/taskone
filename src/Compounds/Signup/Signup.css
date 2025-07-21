@@ -575,6 +575,12 @@ body {
   /* border-bottom: 1px solid red; */
   /* margin-top: -30px; */
 }
+.seeMoreText{
+  text-decoration: underline;
+}
+.arrowTextDocaretionRemove{
+ color: black;
+}
 
 @media screen and (max-width: 768px) {
   .arrowSizing {

@@ -27,7 +27,7 @@ const Signup = () => {
   //   "https://www.pngkey.com/png/detail/80-808253_strongback-premium-lightweight-portable-wheelchair-wheel.png",
   //   "https://www.pngkey.com/png/detail/80-808430_patented-axial-technology-motorized-wheelchair.png"
   // ];
-  const images = [chairOne,chairTwo,chairThree,chairFour];
+  const images = [chairFour,chairThree,chairOne,chairTwo];
 
   
   const [thumbnailOrder, setThumbnailOrder] = useState(images);
@@ -352,7 +352,7 @@ const Signup = () => {
                        {!isExpanded ? "..." : moreText}
                    </p>
              <button id="seeMoreButton" onClick={toggleReadMore} style={{ marginTop: "8px" }}>
-               {isExpanded ? "See Less" : "See More"} <i className="fa-solid fa-angle-right"></i>
+               <span className="seeMoreText">{isExpanded ? "See Less" : "See More"}</span><i className="arrowTextDocaretionRemove fa-solid fa-angle-right"></i>
              </button>
             </div>
             </div>
