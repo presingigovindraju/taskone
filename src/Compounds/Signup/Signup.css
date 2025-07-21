@@ -342,8 +342,9 @@ body {
   border:2px solid skyblue;
 }
 .productDetailsThreeSection{
-  padding-top: 10px;
+  padding-top: 5px;
   /* padding-bottom: 10px; */
+  /* border:1px solid red; */
 }
 .productDetailsThreeSection h3 {
   font-size: 20px;
@@ -354,7 +355,7 @@ body {
 .productDetailsThreeSection p {
   font-size: 15px;
   color: #555;
-  padding-bottom: 10px;
+  padding-bottom: -10px;
 }
 
 
@@ -558,13 +559,30 @@ body {
   margin: 8px 0;
   cursor: pointer;
 }
-
+#seeMoreButton{
+  /* color-scheme: red; */
+  /* border-color: red; */
+  border: none;
+  background-color: transparent;
+  width: 85px;
+  height: 30px;
+  font-size:16px;
+  font-weight: 600;
+  color: rgb(34, 34, 144);
+  display: flex;
+  align-items: center;
+  justify-content:space-between;
+  /* border-bottom: 1px solid red; */
+  /* margin-top: -30px; */
+}
 
 @media screen and (max-width: 768px) {
   .arrowSizing {
     display: none;
   }
 }
+
+
 
 
 @media (max-width: 1024px) {

@@ -3,6 +3,10 @@ import "./Signup.css";
 import logo from "../Images/logo (2).png";
 import { useState } from "react";
 import { FaBars } from "react-icons/fa";
+import chairOne from "../Images/chairOne.png";
+import chairTwo from "../Images/chairTwo.png";
+import chairThree from "../Images/chairThree.jpeg";
+import chairFour from "../Images/chairFour.jpg";
 
 const Signup = () => {
   const [selectedOptions, setSelectedOptions] = useState({
@@ -16,14 +20,16 @@ const Signup = () => {
   const [activeTab, setActiveTab] = useState("Product Options");
   const [visibleRows, setVisibleRows] = useState(1);
   const itemsPerRow = 5;
-  const images = [
-    "https://media.istockphoto.com/id/183880070/photo/black-wheelchair-on-white-background.jpg?s=612x612&w=0&k=20&c=es7shP4g4_PjazHpJJ88irxREO9YlOk60Kv0bJAl_do=",
-    "https://elderliving.in/wp-content/uploads/2022/02/Buy-Arcatron-Foldable-Lightweight-Manual-Wheelchair-FSS100-Online-in-Pune-Mumbai-India-ElderLiving-600x600.jpeg",
-    // "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScv_FUQNcU41MTz8NPYkrHaBDIGwsd8TUULQ&s",
-    ,"https://www.pngkey.com/png/detail/80-808253_strongback-premium-lightweight-portable-wheelchair-wheel.png"
-    ,"https://www.pngkey.com/png/detail/80-808430_patented-axial-technology-motorized-wheelchair.png"
-  ];
 
+  // const images = [
+  //   "https://media.istockphoto.com/id/183880070/photo/black-wheelchair-on-white-background.jpg?s=612x612&w=0&k=20&c=es7shP4g4_PjazHpJJ88irxREO9YlOk60Kv0bJAl_do=",
+  //   "https://elderliving.in/wp-content/uploads/2022/02/Buy-Arcatron-Foldable-Lightweight-Manual-Wheelchair-FSS100-Online-in-Pune-Mumbai-India-ElderLiving-600x600.jpeg",
+  //   "https://www.pngkey.com/png/detail/80-808253_strongback-premium-lightweight-portable-wheelchair-wheel.png",
+  //   "https://www.pngkey.com/png/detail/80-808430_patented-axial-technology-motorized-wheelchair.png"
+  // ];
+  const images = [chairOne,chairTwo,chairThree,chairFour];
+
+  
   const [thumbnailOrder, setThumbnailOrder] = useState(images);
   const [mainImage, setMainImage] = useState(images[0]);
 
@@ -33,6 +39,13 @@ const Signup = () => {
       [type]: value,
     }));
   };
+
+
+
+
+
+
+
 
   const handleUpClick = () => {
     const idx = thumbnailOrder.findIndex((img) => img === mainImage);
@@ -57,15 +70,57 @@ const Signup = () => {
 
     setMainImage(thumbnailOrder[newIdx]);
   };
+   
+  const shortText =
+    "If you are seeking an easy, transportable mobility option, then look no further than Drive Medical’s Silver Sport Transport Wheelchair. The durable steel frame with an attractive silver vein finish and durable vinyl upholstery";
 
-  // const handleThumbnailClick = (img) => {
-  //   setMainImage(img);
-  // };
+  const moreText =
+    " . If you are seeking an easy, transportable mobility option, then look no further than Drive Medical’s Silver Sport Transport Wheelchair. The durable steel frame with an attractive silver vein finish and durable vinyl upholstery If you are seeking an easy, transportable mobility option, then look no further than Drive Medical’s Silver Sport Transport Wheelchair. The durable steel frame with an attractive silver vein finish and durable vinyl upholstery";
+
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const toggleReadMore = () => {
+    setIsExpanded(!isExpanded);
+  };
+
+//   const downloadImage = async () => {
+//   const imageUrl = mainImage;
+
+//   try {
+//     const response = await fetch(imageUrl, { mode: 'no-cors' }); 
+//     const blob = await response.blob();
+//     const blobUrl = URL.createObjectURL(blob);
+
+//     const link = document.createElement('a');
+//     link.href = blobUrl;
+//     link.download = 'downloaded-image.jpg';
+//     document.body.appendChild(link);
+//     link.click();
+//     document.body.removeChild(link);
+//     URL.revokeObjectURL(blobUrl);
+//   } catch (error) {
+//     console.error('Image download failed:', error);
+//     alert("Failed to download image. The image host might be blocking downloads.");
+//   }
+// };
+
+// const downloadImage = () => {
+//   const imageAncho = document.createElement("a");
+//   imageAncho.href = mainImage; 
+//   imageAncho.download = "downloaded-image.jpg"; 
+//   imageAncho.click();
+// };
+
+ 
+
+ 
+  
 
   return (
     <div className="mainSignup">
       <div id="firstSection">
         <img id="firstSectionImgSIzing" src={logo} alt="img_logo" />
+        
         <div id="firstSectionAnchorTags">
           <a className="anchorTagAttribute" href="#products">
             PRODUCTS
@@ -80,6 +135,8 @@ const Signup = () => {
             WHO WE ARE
           </a>
         </div>
+
+
         <div id="firstSectionSearchTag">
           <input type="text" name="text" placeholder="Search..." />
           <div id="firstSectionInSearMixTag">
@@ -119,88 +176,8 @@ const Signup = () => {
         </div>
 
         <div className="productLayoutTotalBlock">
-          {/* <div className="productLayout">
-            <div className="leftImages">
-              <div className="sideThumbnails">
-                <i class="arrowSizing fa-solid fa-angle-up"></i>
-                <img
-                  src="https://media.istockphoto.com/id/183880070/photo/black-wheelchair-on-white-background.jpg?s=612x612&w=0&k=20&c=es7shP4g4_PjazHpJJ88irxREO9YlOk60Kv0bJAl_do="
-                  alt="thumb1"
-                />
-                <img
-                  src="https://media.istockphoto.com/id/183880070/photo/black-wheelchair-on-white-background.jpg?s=612x612&w=0&k=20&c=es7shP4g4_PjazHpJJ88irxREO9YlOk60Kv0bJAl_do="
-                  alt="thumb2"
-                />
-                <img
-                  src="https://media.istockphoto.com/id/183880070/photo/black-wheelchair-on-white-background.jpg?s=612x612&w=0&k=20&c=es7shP4g4_PjazHpJJ88irxREO9YlOk60Kv0bJAl_do="
-                  alt="thumb3"
-                />
-                <img
-                  src="https://media.istockphoto.com/id/183880070/photo/black-wheelchair-on-white-background.jpg?s=612x612&w=0&k=20&c=es7shP4g4_PjazHpJJ88irxREO9YlOk60Kv0bJAl_do="
-                  alt="thumb4"
-                />
-                <div className="videoThumb">
-                  <img
-                    src="https://media.istockphoto.com/id/183880070/photo/black-wheelchair-on-white-background.jpg?s=612x612&w=0&k=20&c=es7shP4g4_PjazHpJJ88irxREO9YlOk60Kv0bJAl_do="
-                    alt="thumb4"
-                  />
-                  <i class="fa-regular fa-circle-play"></i>
-                </div>
-                <i class="arrowSizing fa-solid fa-angle-down"></i>
-              </div>
-            </div>
-
-            <div className="mainProductImg">
-              <img
-                src="https://media.istockphoto.com/id/183880070/photo/black-wheelchair-on-white-background.jpg?s=612x612&w=0&k=20&c=es7shP4g4_PjazHpJJ88irxREO9YlOk60Kv0bJAl_do="
-                alt="main"
-              />
-              <p className="zoomText">Roll over image to zoom in</p>
-            </div>
-
-            
-          </div> */}
-          {/* <div className="productLayout">
-            <div className="leftImages">
-              <div className="sideThumbnails">
-                <i class="arrowSizing fa-solid fa-angle-up"></i>
-                <img
-                  src="https://media.istockphoto.com/id/183880070/photo/black-wheelchair-on-white-background.jpg?s=612x612&w=0&k=20&c=es7shP4g4_PjazHpJJ88irxREO9YlOk60Kv0bJAl_do="
-                  alt="thumb1"
-                />
-                <img
-                  src="https://media.istockphoto.com/id/183880070/photo/black-wheelchair-on-white-background.jpg?s=612x612&w=0&k=20&c=es7shP4g4_PjazHpJJ88irxREO9YlOk60Kv0bJAl_do="
-                  alt="thumb2"
-                />
-                <img
-                  src="https://media.istockphoto.com/id/183880070/photo/black-wheelchair-on-white-background.jpg?s=612x612&w=0&k=20&c=es7shP4g4_PjazHpJJ88irxREO9YlOk60Kv0bJAl_do="
-                  alt="thumb3"
-                />
-                <img
-                  src="https://media.istockphoto.com/id/183880070/photo/black-wheelchair-on-white-background.jpg?s=612x612&w=0&k=20&c=es7shP4g4_PjazHpJJ88irxREO9YlOk60Kv0bJAl_do="
-                  alt="thumb4"
-                />
-                <div className="videoThumb">
-                  <img
-                    src="https://media.istockphoto.com/id/183880070/photo/black-wheelchair-on-white-background.jpg?s=612x612&w=0&k=20&c=es7shP4g4_PjazHpJJ88irxREO9YlOk60Kv0bJAl_do="
-                    alt="thumb4"
-                  />
-                  <i class="fa-regular fa-circle-play"></i>
-                </div>
-                <i class="arrowSizing fa-solid fa-angle-down"></i>
-              </div>
-            </div>
-
-            <div className="mainProductImg">
-              <img
-                src="https://media.istockphoto.com/id/183880070/photo/black-wheelchair-on-white-background.jpg?s=612x612&w=0&k=20&c=es7shP4g4_PjazHpJJ88irxREO9YlOk60Kv0bJAl_do="
-                alt="main"
-              />
-              <p className="zoomText">Roll over image to zoom in</p>
-            </div>
-
-            
-          </div> */}
+          
+          
           <div className="productLayout">
             <div className="leftImages">
               <div className="sideThumbnails">
@@ -233,9 +210,15 @@ const Signup = () => {
               </div>
             </div>
 
-            <div className="mainProductImg">
+            {/* <div className="mainProductImg">
               <img src={mainImage} alt="main product" />
+              <button onClick={downloadImage}>Download Image</button>
               <p className="zoomText">Roll over image to zoom in</p>
+            </div> */}
+            <div className="mainProductImg">
+                <img src={mainImage} alt="main product" />
+               {/* <button onClick={downloadImage}>Download Image</button> */}
+                <p className="zoomText">Roll over image to zoom in</p>
             </div>
           </div>
 
@@ -344,7 +327,7 @@ const Signup = () => {
                 </div>
               </div>
 
-              <div className="productDetailsThreeSection">
+              {/* <div className="productDetailsThreeSection">
                 <h3>About This Item</h3>
                 <p>
                   If you are seeking an easy, transportable mobility option,
@@ -361,7 +344,17 @@ const Signup = () => {
                   </a>
                   <i class="fa-solid fa-angle-right"></i>
                 </div>
-              </div>
+              </div> */}
+              <div className="productDetailsThreeSection">
+                 <h3>About This Item</h3>
+                   <p>
+                       {shortText}
+                       {!isExpanded ? "..." : moreText}
+                   </p>
+             <button id="seeMoreButton" onClick={toggleReadMore} style={{ marginTop: "8px" }}>
+               {isExpanded ? "See Less" : "See More"} <i className="fa-solid fa-angle-right"></i>
+             </button>
+            </div>
             </div>
           </div>
 
@@ -643,6 +636,8 @@ const Signup = () => {
           )}
         </div>
       </div>
+      
+      
 
       <div className="fifthSection">
         <h2 className="accessoriesTitle">Accessories</h2>
@@ -998,6 +993,7 @@ const Signup = () => {
           </div>
         </div>
       </div>
+      
 
       <div id="lastBlock">
         <img
@@ -1039,6 +1035,25 @@ const Signup = () => {
           </p>
         </div>
       </div>
+
+      {/* <div className="productDetailsThreeSection">
+                <h3>About This Item</h3>
+                <p>
+                  If you are seeking an easy, transportable mobility option,
+                  then look no further than Drive Medical’s Silver Sport
+                  Transport Wheelchair. The durable steel frame with an
+                  attractive silver vein finish and durable vinyl upholstery...
+                </p>
+                <div className="seeMoreAchorTag">
+                  <a
+                    href={"https://www.drivemedical.com/customer-service"}
+                    target="_blank"
+                  >
+                    See more
+                  </a>
+                  <i class="fa-solid fa-angle-right"></i>
+                </div>
+              </div> */}
     </div>
   );
 };
