@@ -7,6 +7,7 @@ import chairOne from "../Images/chairOne.png";
 import chairTwo from "../Images/chairTwo.png";
 import chairThree from "../Images/chairThree.jpeg";
 import chairFour from "../Images/chairFour.jpg";
+import Navbar from "../Navbar/Navbar";
 
 const Signup = () => {
   const [selectedOptions, setSelectedOptions] = useState({
