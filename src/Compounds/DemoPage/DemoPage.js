@@ -148,7 +148,7 @@ const Demo = () => {
     onClick={() => setShowOverlay(true)}
     style={{
       width: "100%",
-      height: "700px", 
+      height: "710px", 
       objectFit: "cover", 
       cursor: "pointer",
     }}
