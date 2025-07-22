@@ -131,29 +131,30 @@ const Demo = () => {
       </div>
 
       {/* ✅ Video section */}
-      <div
-        className="videoDivOne"
-        style={{
-          width: "100vw",
-          margin: 0,
-          marginTop: "20px",
-          backgroundColor: "#f8f9fa",
-        }}
-      >
-        <video
-          ref={videoRef}
-          src={handSupport}
-          controls
-          muted
-          onClick={() => setShowOverlay(true)}
-          style={{
-            width: "100%",
-            height: "100%",
-            objectFit: "contain",
-            cursor: "pointer",
-          }}
-        />
-      </div>
+     <div
+  className="videoDivOne"
+  style={{
+    width: "100vw",
+    // margin: 0,
+    marginTop: "20px",
+    backgroundColor: "#f8f9fa",
+  }}
+>
+  <video
+    ref={videoRef}
+    src={handSupport}
+    controls
+    muted
+    onClick={() => setShowOverlay(true)}
+    style={{
+      width: "100%",
+      height: "700px", 
+      objectFit: "cover", 
+      cursor: "pointer",
+    }}
+  />
+</div>
+
 
       {/* ✅ Overlay for zoomable/pannable image */}
       {showOverlay && (
