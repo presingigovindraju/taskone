@@ -22,7 +22,7 @@ const App =()=>{
         //     <Demo />
         // </div>
         <Routes>
-            <Route path="/" element={<Signup />}/>
+            <Route path="/" element={<Signup setHide={setHide}/>}/>
             <Route path="/Demo" element={<Demo />}/>
         </Routes>
     )

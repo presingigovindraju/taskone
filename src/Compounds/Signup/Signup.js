@@ -9,7 +9,7 @@ import chairThree from "../Images/chairThree.jpeg";
 import chairFour from "../Images/chairFour.jpg";
 import Navbar from "../Navbar/Navbar";
 
-const Signup = () => {
+const Signup = ({setHide}) => {
   const [selectedOptions, setSelectedOptions] = useState({
     color: "red",
     size: '18"',
@@ -119,6 +119,7 @@ const Signup = () => {
 
   return (
     <div className="mainSignup">
+    <Navbar setHide={setHide}/>
       <div id="firstSection">
         <img id="firstSectionImgSIzing" src={logo} alt="img_logo" />
         
