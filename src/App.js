@@ -5,6 +5,8 @@ import Signup from "./Compounds/Signup/Signup.js";
 import Animation from "./Compounds/Animation/Animation.js";
 import Demo from "./Compounds/DemoPage/DemoPage.js";
 import {Route,Routes} from "react-router-dom";
+import FrameMotion from "./Compounds/FrameMotion/FrameMotion.js";
+import New from "./Compounds/New/New.js";
 
 
 const App =()=>{
@@ -24,6 +26,8 @@ const App =()=>{
         <Routes>
             <Route path="/" element={<Signup setHide={setHide}/>}/>
             <Route path="/Demo" element={<Demo />}/>
+            <Route  path="/FrameMotion" element={<FrameMotion />}/>
+            <Route  path="/New" element={<New />}/>
         </Routes>
     )
 }

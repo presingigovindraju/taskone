@@ -1,0 +1,17 @@
+.card-container {
+  width: 280px;
+  height: 400px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-container:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px 5px rgba(0, 123, 255, 0.4); /* blue blur glow */
+}
