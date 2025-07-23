@@ -474,6 +474,10 @@
 // export default New;
 
 
+
+
+
+
 import React, { useEffect, useRef, useState } from "react";
 import "./New.css";
 import handSupport from "../Video/handSupport.mp4";
