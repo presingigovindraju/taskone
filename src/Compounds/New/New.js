@@ -637,6 +637,7 @@ const New = () => {
       </div>
 
       {/* Overlay with scrollable frame images */}
+      {/* Overlay with scrollable frame images */}
       {showOverlay && (
         <div
           onClick={() => setShowOverlay(false)}
