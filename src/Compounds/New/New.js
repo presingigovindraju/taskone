@@ -477,15 +477,224 @@
 
 
 
+// import React, { useEffect, useRef, useState } from "react";
+// import "./New.css";
+// import rolling from "../Video/rolling off camera right_1.mp4";
+
+
+// const importAll = (r) => r.keys().map(r);
+// const allFrames = importAll(
+//   require.context("../FileImg/all_frames", false, /\.(png)$/)
+// );
+
+// const images = [
+//   "https://media.istockphoto.com/id/183880070/photo/black-wheelchair-on-white-background.jpg?s=612x612&w=0&k=20&c=es7shP4g4_PjazHpJJ88irxREO9YlOk60Kv0bJAl_do=",
+//   "https://elderliving.in/wp-content/uploads/2022/02/Buy-Arcatron-Foldable-Lightweight-Manual-Wheelchair-FSS100-Online-in-Pune-Mumbai-India-ElderLiving-600x600.jpeg",
+// ];
+
+// const New = () => {
+//   const scrollRef = useRef(null);
+//   const videoRef = useRef(null);
+//   const totalFrames = allFrames.length;
+
+//   const [frameIndex, setFrameIndex] = useState(0);
+//   const [showOverlay, setShowOverlay] = useState(false);
+//   const [lastScrollTop, setLastScrollTop] = useState(0);
+
+//   const handleScroll = () => {
+//     const scrollElement = scrollRef.current;
+//     if (!scrollElement) return;
+
+//     const scrollTop = scrollElement.scrollTop;
+//     const scrollHeight =
+//       scrollElement.scrollHeight - scrollElement.clientHeight;
+//     const scrollPercent = scrollTop / scrollHeight;
+
+//     const direction = scrollTop > lastScrollTop ? "down" : "up";
+//     const baseFrame = Math.floor(scrollPercent * totalFrames);
+
+    
+//     const scrollSpeed = Math.abs(scrollTop - lastScrollTop);
+//     const speedFactor = Math.min(Math.floor(scrollSpeed / 5), 15); 
+//     const finalIndex =
+//       direction === "down"
+//         ? Math.min(totalFrames - 1, baseFrame + speedFactor)
+//         : Math.max(0, baseFrame - speedFactor);
+
+//     setFrameIndex(finalIndex);
+//     setLastScrollTop(scrollTop);
+//   };
+
+//   useEffect(() => {
+//     if (showOverlay && scrollRef.current) {
+//       scrollRef.current.addEventListener("scroll", handleScroll, {
+//         passive: true,
+//       });
+//     }
+
+//     return () => {
+//       if (scrollRef.current) {
+//         scrollRef.current.removeEventListener("scroll", handleScroll);
+//       }
+//     };
+//   }, [showOverlay, lastScrollTop]);
+
+//   useEffect(() => {
+//     document.body.style.overflow = showOverlay ? "hidden" : "auto";
+//     return () => {
+//       document.body.style.overflow = "auto";
+//     };
+//   }, [showOverlay]);
+
+//   useEffect(() => {
+//     const observer = new IntersectionObserver(
+//       ([entry]) => {
+//         const video = videoRef.current;
+//         if (video) {
+//           entry.isIntersecting ? video.play() : video.pause();
+//         }
+//       },
+//       { threshold: 0.2 }
+//     );
+
+//     if (videoRef.current) observer.observe(videoRef.current);
+//     return () => {
+//       if (videoRef.current) observer.unobserve(videoRef.current);
+//     };
+//   }, []);
+
+//   return (
+//     <div>
+     
+//       <div>
+//         {[1, 2].map((section) => (
+//           <div
+//             key={section}
+//             style={{
+//               display: "flex",
+//               justifyContent: "center",
+//               gap: "20px",
+//               padding: "40px",
+//               flexWrap: "wrap",
+//             }}
+//           >
+//             {images.map((item, idx) => (
+//               <div className="card-container" key={`${section}-${idx}`}>
+//                 <img
+//                   src={item}
+//                   alt={`item-${idx}`}
+//                   style={{
+//                     width: "100%",
+//                     height: "100%",
+//                     objectFit: "contain",
+//                   }}
+//                 />
+//               </div>
+//             ))}
+//           </div>
+//         ))}
+//       </div>
+
+     
+//       <div
+//         className="videoDivOne"
+//         style={{
+//           width: "100vw",
+//           height: "100vh",
+//           backgroundColor: "#000",
+//           overflow: "hidden",
+//           display: "flex",
+//           justifyContent: "center",
+//           alignItems: "center",
+//         }}
+//       >
+//         <video
+//           ref={videoRef}
+//           src={rolling}
+//           controls
+//           muted
+//           onClick={() => setShowOverlay(true)}
+//           style={{
+//             width: "100vw",
+//             height: "100%",
+//             objectFit: "contain",
+//             backgroundColor: "#000",
+//             cursor: "pointer",
+//           }}
+//         />
+//       </div>
+
+     
+//       {showOverlay && (
+//         <div
+//           onClick={() => setShowOverlay(false)}
+//           style={{
+//             position: "fixed",
+//             top: 0,
+//             left: 0,
+//             width: "100vw",
+//             height: "100vh",
+//             backgroundColor: "rgba(0, 0, 0, 0.8)",
+//             display: "flex",
+//             justifyContent: "center",
+//             alignItems: "center",
+//             zIndex: 1000,
+//           }}
+//         >
+//           <div
+//             ref={scrollRef}
+//             style={{
+//               height: "80vh",
+//               overflowY: "scroll",
+//               scrollBehavior: "smooth",
+//               width: "100%",
+//               maxWidth: "650px",
+//               margin: "0 auto",
+//               position: "relative",
+//               background: "#000",
+              
+//               borderRadius: "12px",
+//               scrollbarWidth: "thin",
+//             }}
+//             onClick={(e) => e.stopPropagation()}
+//           >
+          
+//             <img
+//               src={allFrames[frameIndex]}
+//               alt={`frame_${frameIndex}`}
+//               style={{
+//                 position: "sticky",
+//                 top: 0,
+//                 width: "100%",
+//                 height: "80vh",
+//                 objectFit: "contain",
+//                 background: "#000",
+//                 pointerEvents: "none",
+//                 zIndex: 1,
+//               }}
+//             />
+
+          
+//             <div style={{ height: `${totalFrames * 10}px` }}></div>
+//           </div>
+//         </div>
+//       )}
+//     </div>
+//   );
+// };
+
+// export default New;
+
+
+
+
+
+
+
+
 import React, { useEffect, useRef, useState } from "react";
 import "./New.css";
 import rolling from "../Video/rolling off camera right_1.mp4";
-
-// Dynamically import all PNG frames
-const importAll = (r) => r.keys().map(r);
-const allFrames = importAll(
-  require.context("../FileImg/all_frames", false, /\.(png)$/)
-);
 
 const images = [
   "https://media.istockphoto.com/id/183880070/photo/black-wheelchair-on-white-background.jpg?s=612x612&w=0&k=20&c=es7shP4g4_PjazHpJJ88irxREO9YlOk60Kv0bJAl_do=",
@@ -493,56 +702,27 @@ const images = [
 ];
 
 const New = () => {
-  const scrollRef = useRef(null);
   const videoRef = useRef(null);
-  const totalFrames = allFrames.length;
-
-  const [frameIndex, setFrameIndex] = useState(0);
   const [showOverlay, setShowOverlay] = useState(false);
-  const [lastScrollTop, setLastScrollTop] = useState(0);
-
-  const handleScroll = () => {
-    const scrollElement = scrollRef.current;
-    if (!scrollElement) return;
-
-    const scrollTop = scrollElement.scrollTop;
-    const scrollHeight =
-      scrollElement.scrollHeight - scrollElement.clientHeight;
-    const scrollPercent = scrollTop / scrollHeight;
-
-    const direction = scrollTop > lastScrollTop ? "down" : "up";
-    const baseFrame = Math.floor(scrollPercent * totalFrames);
-
-    // Extra boost when dragging fast
-    const scrollSpeed = Math.abs(scrollTop - lastScrollTop);
-    const speedFactor = Math.min(Math.floor(scrollSpeed / 5), 15); // Cap boost
-    const finalIndex =
-      direction === "down"
-        ? Math.min(totalFrames - 1, baseFrame + speedFactor)
-        : Math.max(0, baseFrame - speedFactor);
-
-    setFrameIndex(finalIndex);
-    setLastScrollTop(scrollTop);
-  };
+  const miniVideoRef = useRef(null);
+  const miniVideoWrapperRef = useRef(null);
+  const scrollAnimationFrame = useRef(null);
 
   useEffect(() => {
-    if (showOverlay && scrollRef.current) {
-      scrollRef.current.addEventListener("scroll", handleScroll, {
-        passive: true,
-      });
+    const body = document.body;
+    const html = document.documentElement;
+
+    if (showOverlay) {
+      body.style.overflow = "hidden";
+      html.style.overflow = "hidden";
+    } else {
+      body.style.overflow = "auto";
+      html.style.overflow = "auto";
     }
 
     return () => {
-      if (scrollRef.current) {
-        scrollRef.current.removeEventListener("scroll", handleScroll);
-      }
-    };
-  }, [showOverlay, lastScrollTop]);
-
-  useEffect(() => {
-    document.body.style.overflow = showOverlay ? "hidden" : "auto";
-    return () => {
-      document.body.style.overflow = "auto";
+      body.style.overflow = "auto";
+      html.style.overflow = "auto";
     };
   }, [showOverlay]);
 
@@ -563,9 +743,49 @@ const New = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const wrapper = miniVideoWrapperRef.current;
+    const video = miniVideoRef.current;
+
+    if (!wrapper || !video) return;
+
+    const handleScroll = () => {
+      if (scrollAnimationFrame.current) {
+        cancelAnimationFrame(scrollAnimationFrame.current);
+      }
+
+      scrollAnimationFrame.current = requestAnimationFrame(() => {
+        const scrollTop = wrapper.scrollTop;
+        const maxScroll = wrapper.scrollHeight - wrapper.clientHeight;
+        const scrollFraction = scrollTop / maxScroll;
+
+        if (video.duration) {
+          const targetTime = scrollFraction * video.duration;
+
+          // Smooth transition using linear interpolation
+          const lerp = (start, end, t) => start + (end - start) * t;
+          const animateSeek = () => {
+            const currentTime = video.currentTime;
+            const newTime = lerp(currentTime, targetTime, 0.2);
+
+            if (Math.abs(newTime - currentTime) > 0.01) {
+              video.currentTime = newTime;
+              requestAnimationFrame(animateSeek);
+            }
+          };
+
+          animateSeek();
+        }
+      });
+    };
+
+    wrapper.addEventListener("scroll", handleScroll);
+    return () => wrapper.removeEventListener("scroll", handleScroll);
+  }, [showOverlay]);
+
   return (
-    <div>
-      {/* Static image grid */}
+    <div style={{ overflowX: "hidden" }}>
+      {/* Static images */}
       <div>
         {[1, 2].map((section) => (
           <div
@@ -595,7 +815,7 @@ const New = () => {
         ))}
       </div>
 
-      {/* Clickable video */}
+      {/* Base video section */}
       <div
         className="videoDivOne"
         style={{
@@ -606,6 +826,7 @@ const New = () => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
+          pointerEvents: showOverlay ? "none" : "auto",
         }}
       >
         <video
@@ -624,7 +845,7 @@ const New = () => {
         />
       </div>
 
-      {/* Frame scroll overlay */}
+      {/* Overlay with scroll-controlled video */}
       {showOverlay && (
         <div
           onClick={() => setShowOverlay(false)}
@@ -634,48 +855,46 @@ const New = () => {
             left: 0,
             width: "100vw",
             height: "100vh",
-            backgroundColor: "rgba(0, 0, 0, 0.8)",
+            backgroundColor: "rgba(128, 128, 128, 0.8)",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
             zIndex: 1000,
+            overflow: "hidden",
           }}
         >
           <div
-            ref={scrollRef}
+            id="miniVideoParentDiv"
+            ref={miniVideoWrapperRef}
+            className="custom-scroll"
             style={{
-              height: "80vh",
+              width: "45vw",
+              height: "70vh",
               overflowY: "scroll",
-              scrollBehavior: "smooth",
-              width: "100%",
-              maxWidth: "700px",
-              margin: "0 auto",
+              borderRadius: "15px",
+              backgroundColor: "#000",
               position: "relative",
-              background: "#000",
-              // border:"2px solid red",
-              borderRadius: "12px",
-              scrollbarWidth: "thin",
+              scrollBehavior: "smooth",
+              // border:"2px solid red"
             }}
-            onClick={(e) => e.stopPropagation()}
           >
-            {/* Frame image (sticky) */}
-            <img
-              src={allFrames[frameIndex]}
-              alt={`frame_${frameIndex}`}
+            {/* Sticky miniVideo */}
+            <video
+              id="miniVideo"
+              ref={miniVideoRef}
+              src={rolling}
+              muted
               style={{
                 position: "sticky",
                 top: 0,
                 width: "100%",
                 height: "80vh",
                 objectFit: "contain",
-                background: "#000",
                 pointerEvents: "none",
-                zIndex: 1,
+                zIndex: 2,
               }}
             />
-
-            {/* Spacer for scroll range */}
-            <div style={{ height: `${totalFrames * 10}px` }}></div>
+            <div style={{ height: "2000px" }}></div>
           </div>
         </div>
       )}
@@ -684,4 +903,3 @@ const New = () => {
 };
 
 export default New;
-
