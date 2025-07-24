@@ -1,6 +1,3 @@
-
-
-
 import React, { useEffect, useRef, useState } from "react";
 import "./FrameMotion.css";
 import handSupport from "../Video/handSupport.mp4";

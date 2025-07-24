@@ -16,3 +16,16 @@
   box-shadow: 0 0 20px 5px rgba(0, 123, 255, 0.4); /* blue blur glow */
 }
 
+/* New.css */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

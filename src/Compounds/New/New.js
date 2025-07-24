@@ -477,21 +477,17 @@
 
 
 
-
 import React, { useEffect, useRef, useState } from "react";
 import "./New.css";
-import handSupport from "../Video/handSupport.mp4";
-import sampleImage from "../Images/chairFour.jpg";
 import rolling from "../Video/rolling off camera right_1.mp4";
 
+// Dynamically import all PNG frames
 const importAll = (r) => r.keys().map(r);
 const allFrames = importAll(
   require.context("../FileImg/all_frames", false, /\.(png)$/)
 );
 
 const images = [
-  "https://media.istockphoto.com/id/183880070/photo/black-wheelchair-on-white-background.jpg?s=612x612&w=0&k=20&c=es7shP4g4_PjazHpJJ88irxREO9YlOk60Kv0bJAl_do=",
-  "https://elderliving.in/wp-content/uploads/2022/02/Buy-Arcatron-Foldable-Lightweight-Manual-Wheelchair-FSS100-Online-in-Pune-Mumbai-India-ElderLiving-600x600.jpeg",
   "https://media.istockphoto.com/id/183880070/photo/black-wheelchair-on-white-background.jpg?s=612x612&w=0&k=20&c=es7shP4g4_PjazHpJJ88irxREO9YlOk60Kv0bJAl_do=",
   "https://elderliving.in/wp-content/uploads/2022/02/Buy-Arcatron-Foldable-Lightweight-Manual-Wheelchair-FSS100-Online-in-Pune-Mumbai-India-ElderLiving-600x600.jpeg",
 ];
@@ -503,9 +499,7 @@ const New = () => {
 
   const [frameIndex, setFrameIndex] = useState(0);
   const [showOverlay, setShowOverlay] = useState(false);
-  const [translateY, setTranslateY] = useState(0);
-  const [translateX, setTranslateX] = useState(0);
-  const [isHovered, setIsHovered] = useState(false);
+  const [lastScrollTop, setLastScrollTop] = useState(0);
 
   const handleScroll = () => {
     const scrollElement = scrollRef.current;
@@ -514,19 +508,28 @@ const New = () => {
     const scrollTop = scrollElement.scrollTop;
     const scrollHeight =
       scrollElement.scrollHeight - scrollElement.clientHeight;
-
     const scrollPercent = scrollTop / scrollHeight;
-    const index = Math.min(
-      totalFrames - 1,
-      Math.floor(scrollPercent * totalFrames)
-    );
 
-    setFrameIndex(index);
+    const direction = scrollTop > lastScrollTop ? "down" : "up";
+    const baseFrame = Math.floor(scrollPercent * totalFrames);
+
+    // Extra boost when dragging fast
+    const scrollSpeed = Math.abs(scrollTop - lastScrollTop);
+    const speedFactor = Math.min(Math.floor(scrollSpeed / 5), 15); // Cap boost
+    const finalIndex =
+      direction === "down"
+        ? Math.min(totalFrames - 1, baseFrame + speedFactor)
+        : Math.max(0, baseFrame - speedFactor);
+
+    setFrameIndex(finalIndex);
+    setLastScrollTop(scrollTop);
   };
 
   useEffect(() => {
     if (showOverlay && scrollRef.current) {
-      scrollRef.current.addEventListener("scroll", handleScroll, { passive: true });
+      scrollRef.current.addEventListener("scroll", handleScroll, {
+        passive: true,
+      });
     }
 
     return () => {
@@ -534,7 +537,7 @@ const New = () => {
         scrollRef.current.removeEventListener("scroll", handleScroll);
       }
     };
-  }, [showOverlay]);
+  }, [showOverlay, lastScrollTop]);
 
   useEffect(() => {
     document.body.style.overflow = showOverlay ? "hidden" : "auto";
@@ -560,28 +563,9 @@ const New = () => {
     };
   }, []);
 
-  const handleMouseMove = (e) => {
-    const container = e.currentTarget;
-    const rect = container.getBoundingClientRect();
-    const mouseX = e.clientX - rect.left;
-    const mouseY = e.clientY - rect.top;
-
-    const percentX = mouseX / rect.width;
-    const percentY = mouseY / rect.height;
-
-    const maxOffsetY = rect.height * 0.25;
-    const maxOffsetX = rect.width * 0.25;
-
-    const offsetY = (percentY - 0.5) * -2 * maxOffsetY;
-    const offsetX = (percentX - 0.5) * -2 * maxOffsetX;
-
-    setTranslateY(offsetY);
-    setTranslateX(offsetX);
-  };
-
   return (
     <div>
-      {/* Image sections */}
+      {/* Static image grid */}
       <div>
         {[1, 2].map((section) => (
           <div
@@ -611,7 +595,7 @@ const New = () => {
         ))}
       </div>
 
-      {/* Video section */}
+      {/* Clickable video */}
       <div
         className="videoDivOne"
         style={{
@@ -640,8 +624,7 @@ const New = () => {
         />
       </div>
 
-      {/* Overlay with scrollable frame images */}
-      {/* Overlay with scrollable frame images */}
+      {/* Frame scroll overlay */}
       {showOverlay && (
         <div
           onClick={() => setShowOverlay(false)}
@@ -663,16 +646,19 @@ const New = () => {
             style={{
               height: "80vh",
               overflowY: "scroll",
-              scrollBehavior: "smooth", // 💡 this enables smooth scrolling
+              scrollBehavior: "smooth",
               width: "100%",
-              maxWidth: "800px",
+              maxWidth: "700px",
               margin: "0 auto",
               position: "relative",
               background: "#000",
-              borderRadius: "20px",
+              // border:"2px solid red",
+              borderRadius: "12px",
+              scrollbarWidth: "thin",
             }}
             onClick={(e) => e.stopPropagation()}
           >
+            {/* Frame image (sticky) */}
             <img
               src={allFrames[frameIndex]}
               alt={`frame_${frameIndex}`}
@@ -680,15 +666,15 @@ const New = () => {
                 position: "sticky",
                 top: 0,
                 width: "100%",
-                height: "90vh",
-                objectFit: "cover",
-                zIndex: 1,
-                pointerEvents: "none",
+                height: "80vh",
+                objectFit: "contain",
                 background: "#000",
+                pointerEvents: "none",
+                zIndex: 1,
               }}
             />
 
-            {/* Spacer */}
+            {/* Spacer for scroll range */}
             <div style={{ height: `${totalFrames * 10}px` }}></div>
           </div>
         </div>
@@ -698,3 +684,4 @@ const New = () => {
 };
 
 export default New;
+
