@@ -199,7 +199,7 @@ const Signup = ({setHide}) => {
                     }`}
                   />
                 ))}
-
+                {/* hgcgfcgfc */}
                 <div className="videoThumb">
                   <img src={images[0]} alt="video" />
                   <i className="fa-regular fa-circle-play"></i>
